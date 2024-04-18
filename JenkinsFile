@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    parameters {
-        string(name: 'PROCESS_NAME', defaultValue: 'bash', description: 'Nombre del proceso a buscar')
-    }
+    // parameters {
+    //     string(name: 'PROCESS_NAME', defaultValue: 'bash', description: 'Nombre del proceso a buscar')
+    // }
 
     stages {
         stage('Ejecutando el Script') {
