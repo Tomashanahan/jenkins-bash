@@ -6,29 +6,11 @@ pipeline {
     }
 
     stages {
-        stage('Preparación') {
+        stage('Ejecutando el Script') {
             steps {
                 script {
-                    sh 'echo Preparando el entorno...'
-                }
-            }
-        }
-
-        stage('Ejecutar Script') {
-            steps {
-                script {
-                    sh '''
-                    chmod +x ./tu_script.sh
-                    '''
-                    sh "./tu_script.sh ${params.PROCESS_NAME}"
-                }
-            }
-        }
-
-        stage('Post-ejecución') {
-            steps {
-                script {
-                    sh 'echo Limpieza y finalización...'
+                    // sh 'chmod +x ./tu_script.sh'
+                    // sh "./tu_script.sh ${params.PROCESS_NAME}"
                 }
             }
         }
