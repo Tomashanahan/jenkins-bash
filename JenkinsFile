@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'PROCESS_NAME', defaultValue: 'bash', description: 'Nombre del proceso a buscar')
+    }
+
+    stages {
+        stage('Preparación') {
+            steps {
+                script {
+                    sh 'echo Preparando el entorno...'
+                }
+            }
+        }
+
+        stage('Ejecutar Script') {
+            steps {
+                script {
+                    sh '''
+                    chmod +x ./tu_script.sh
+                    '''
+                    sh "./tu_script.sh ${params.PROCESS_NAME}"
+                }
+            }
+        }
+
+        stage('Post-ejecución') {
+            steps {
+                script {
+                    sh 'echo Limpieza y finalización...'
+                }
+            }
+        }
+    }
+    post {
+        always {
+            echo 'El job ha sido completado.'
+        }
+    }
+}
